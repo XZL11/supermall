@@ -1,7 +1,7 @@
 <template>
   <div class="shop-info">
     <div class="shop-top">
-      <img :src="shop.logo">
+      <img :src="shop.logo" alt="">
       <span class="title">{{shop.name}}</span>
     </div>
     <div class="shop-middle">
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-	export default {
-		name: "DetailShopInfo",
+  export default {
+    name: "DetailShopInfo",
     props: {
-		  shop: {
-		    type: Object,
+      shop: {
+        type: Object,
         default() {
-		      return {}
+          return {}
         }
       }
     },
@@ -52,18 +52,19 @@
         return (value/10000).toFixed(1) + '万'
       }
     }
-	}
+  }
 </script>
 
 <style scoped>
   .shop-info {
     padding: 25px 8px;
     border-bottom: 5px solid #f2f5f8;
+    background-color: #ffffff;
   }
 
   .shop-top {
     line-height: 45px;
-    /* 让元素垂直中心对齐 */
+    /*让元素垂直中心对齐*/
     display: flex;
     align-items: center;
   }
@@ -93,7 +94,7 @@
   .shop-middle-left {
     display: flex;
     justify-content: space-evenly;
-    color: #333;
+    color: #333333;
     text-align: center;
     border-right: 1px solid rgba(0,0,0,.1);
   }
@@ -109,7 +110,12 @@
 
   .shop-middle-right {
     font-size: 13px;
-    color: #333;
+    color: #333333;
+  }
+
+  .shop-middle-right {
+    font-size: 13px;
+    color: #333333;
   }
 
   .shop-middle-right table {

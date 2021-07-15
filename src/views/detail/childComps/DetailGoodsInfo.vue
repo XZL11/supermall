@@ -1,53 +1,53 @@
 <template>
-  <div v-if="Object.keys(detailInfo).length !== 0" class="goods-info">
+  <div v-if="Object.keys(detailInfo).length !==0" class="goods-info">
     <div class="info-desc clear-fix">
-      <div class="start">
-      </div>
+      <div class="start"></div>
       <div class="desc">{{detailInfo.desc}}</div>
       <div class="end"></div>
     </div>
     <div class="info-key">{{detailInfo.detailImage[0].key}}</div>
     <div class="info-list">
-      <img v-for="(item, index) in detailInfo.detailImage[0].list" :key="index" :src="item" @load="imgLoad" alt="">
+      <img v-for="(item, index) in detailInfo.detailImage[0].list" :src="item" :key="index" @load="imgLoad" alt="">
     </div>
   </div>
 </template>
 
 <script>
-	export default {
-		name: "DetailGoodsInfo",
+  export default {
+    name: "DetailGoodsInfo",
     props: {
       detailInfo: {
         type: Object
       }
     },
     data() {
-			return {
-				counter: 0,
+      return {
+        counter: 0,
         imagesLength: 0
       }
     },
     methods: {
-	    imgLoad() {
-        // 判断, 所有的图片都加载完了, 那么进行一次回调就可以了.
+      imgLoad() {
+      //  判断图片都加载完了，那么就进行一次回调就可以了
         if (++this.counter === this.imagesLength) {
           this.$emit('imageLoad');
         }
-	    }
+      }
     },
     watch: {
-	    detailInfo() {
-	      // 获取图片的个数
-	    	this.imagesLength = this.detailInfo.detailImage[0].list.length
-	    }
+      detailInfo() {
+      //  获取图片的个数
+        this.imagesLength = this.detailInfo.detailImage[0].list.length
+      }
     }
-	}
+  }
 </script>
 
 <style scoped>
   .goods-info {
     padding: 20px 0;
     border-bottom: 5px solid #f2f5f8;
+    background-color: #ffffff;
   }
 
   .info-desc {
@@ -74,7 +74,7 @@
     position: absolute;
     width: 5px;
     height: 5px;
-    background-color: #333;
+    background-color: #333333;
     bottom: 0;
   }
 
@@ -89,8 +89,13 @@
 
   .info-key {
     margin: 10px 0 10px 15px;
-    color: #333;
+    color: #333333;
     font-size: 15px;
+    text-align: center;
+  }
+
+  .info-key::before ,.info-key::after {
+    content: '~';
   }
 
   .info-list img {

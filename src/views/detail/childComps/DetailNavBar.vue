@@ -5,10 +5,10 @@
         <img src="~assets/img/common/back.svg" alt="">
       </div>
       <div slot="center" class="title">
-        <div v-for="(item, index) in titles"
+        <div v-for="(item,index) in titles"
              class="title-item"
-             :class="{active: index === currentIndex}"
-             @click="titleClick(index)">
+             :class="{active: index === currenttIndex}"
+             @click="titleClick(index)" >
           {{item}}
         </div>
       </div>
@@ -17,8 +17,7 @@
 </template>
 
 <script>
-  import NavBar from 'components/common/navbar/NavBar'
-
+  import NavBar from "../../../components/common/navbar/NavBar";
   export default {
     name: "DetailNavBar",
     components: {
@@ -27,13 +26,16 @@
     data() {
       return {
         titles: ['商品', '参数', '评论', '推荐'],
-        currentIndex: 0
+        currenttIndex: 0
       }
     },
     methods: {
-      titleClick(index) {
-        this.currentIndex = index
+      // 实现点击变色操作
+      titleClick(index){
+        this.currenttIndex = index
+        this.$emit('titleClick', index)
       },
+    //  实现返回首页操作
       backClick() {
         this.$router.back()
       }
@@ -44,15 +46,16 @@
 <style scoped>
   .title {
     display: flex;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .title-item {
     flex: 1;
+
   }
 
   .active {
-    color: var(--color-high-text)
+    color: var(--color-high-text);
   }
 
   .back img {

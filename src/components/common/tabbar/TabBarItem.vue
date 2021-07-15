@@ -51,6 +51,6 @@
     margin-bottom: 2px;
   }
   .active {
-    color: red;
+    color: var(--color-tint);
   }
 </style>

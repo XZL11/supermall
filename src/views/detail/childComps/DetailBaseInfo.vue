@@ -40,6 +40,7 @@
     padding: 0 8px;
     color: #999;
     border-bottom: 5px solid #f2f5f8;
+    background-color: #ffffff;
   }
 
   .info-title {
@@ -97,7 +98,8 @@
   }
 
   .info-service-item span {
-    font-size: 13px;
+    font-size: 11px;
     color: #333;
+    justify-content: space-around;
   }
 </style>
